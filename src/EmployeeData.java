@@ -19,6 +19,19 @@ public class EmployeeData {
 
     }
 
+    public EmployeeData(String firstName, String lastName, String age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
+    public EmployeeData(String firstName, String lastName, String age, Address address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.address = address;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -55,12 +68,7 @@ public class EmployeeData {
         this.phoneNumbers = phoneNumbers;
     }
 
-    public EmployeeData(String firstName, String lastName, String age, Address address) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.address = address;
-    }
+
 
     @Override
     public String toString() {
