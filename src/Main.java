@@ -11,8 +11,21 @@ import java.io.FileReader;
 public class Main {
 
 
-    static String file = "/Users/deepdoradla/Documents/Cloudwick/JsonParse/data.json";
+
     public static void main(String[] args)
+    {   //Load file
+        String file = Main.loadFile();
+
+        //Extract Json data
+        EmployeeData employeeData = Main.extractJsonData(file);
+
+        //Print the json data constructed from Employee data structure
+        System.out.println(employeeData.toString());
+        System.out.println(employeeData.address.toString());
+        System.out.println(employeeData.getPhoneNumbers());
+    }
+
+    public static EmployeeData extractJsonData(String file)
     {
         BufferedReader reader = null;
         //Load the data
@@ -25,7 +38,13 @@ public class Main {
         Gson gson = new GsonBuilder().create();
         EmployeeData employeeData = gson.fromJson(reader, EmployeeData.class);
 
-        System.out.println(employeeData.toString());
-        System.out.println(employeeData.address.toString());
+        return employeeData;
+    }
+
+
+    public static String loadFile(){
+        String file = "/Users/deepdoradla/Documents/Cloudwick/JsonParse/data.json";
+
+        return file;
     }
 }
